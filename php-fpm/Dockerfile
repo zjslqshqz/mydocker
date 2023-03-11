@@ -15,4 +15,5 @@ RUN curl -sSLf \
     ssh2 shmop sockets soap sysvsem sysvmsg sysvshm \
     xmlrpc \
     mcrypt msgpack \
-    zip
+    zip \
+    opcache
