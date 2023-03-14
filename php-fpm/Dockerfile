@@ -1,5 +1,6 @@
 FROM --platform=$TARGETPLATFORM php:7.4.33-fpm
 
+# 开启拓展
 RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
         https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions && \
@@ -15,5 +16,4 @@ RUN curl -sSLf \
     ssh2 shmop sockets soap sysvsem sysvmsg sysvshm \
     xmlrpc \
     mcrypt msgpack \
-    zip \
-    opcache
+    zip
