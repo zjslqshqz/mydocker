@@ -17,24 +17,24 @@ RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" && \
     sed -i 's/;date.timezone =/date.timezone = PRC/g' "$PHP_INI_DIR/php.ini"
 
 # php opcache 缓存设置
-RUN echo "[opcache] \
-    ; 启用 opcache 扩展 \
-    zend_extension=opcache \
-    opcache.enable=1 \
-    ; 禁用在命令行界面下运行 PHP 脚本时使用 opcache 扩展 \
-    opcache.enable_cli=0 \
-    ; 指定用于缓存内部字符串的内存大小，单位为 MB \
-    opcache.interned_strings_buffer=16 \
-    ; 指定 Opcache 所使用的内存大小，单位为 MB \
-    opcache.memory_consumption=128 \
-    ; 指定优化级别，所有位都被设置为 1，表示启用所有优化选项 \
-    opcache.optimization_level=0xffffffff \
-    ; 配置保护时间，以秒为单位，在此时间内不会检查文件的时间戳是否已更改 \
-    opcache.file_update_protection=2" > "$PHP_INI_DIR/conf.d/docker-php-ext-01-opcache.ini"
+RUN echo "[opcache]\n \
+; 启用 opcache 扩展\n \
+zend_extension=opcache\n \
+opcache.enable=1\n \
+; 禁用在命令行界面下运行 PHP 脚本时使用 opcache 扩展\n \
+opcache.enable_cli=0\n \
+; 指定用于缓存内部字符串的内存大小，单位为 MB\n \
+opcache.interned_strings_buffer=16\n \
+; 指定 Opcache 所使用的内存大小，单位为 MB\n \
+opcache.memory_consumption=128\n \
+; 指定优化级别，所有位都被设置为 1，表示启用所有优化选项\n \
+opcache.optimization_level=0xffffffff\n \
+; 配置保护时间，以秒为单位，在此时间内不会检查文件的时间戳是否已更改\n \
+opcache.file_update_protection=2" > "$PHP_INI_DIR/conf.d/docker-php-ext-01-opcache.ini"
 
 # 安装xdebug 并修改参数
 RUN install-php-extensions xdebug && \
-    sed -i '$a [XDebug]\n\
-    xdebug.mode = debug\n\
-    xdebug.start_with_request = yes\n\
-    xdebug.client_host = host.docker.internal' "$PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini"
+sed -i '$a [XDebug]\n\
+xdebug.mode = debug\n\
+xdebug.start_with_request = yes\n\
+xdebug.client_host = host.docker.internal' "$PHP_INI_DIR/conf.d/docker-php-ext-xdebug.ini"
