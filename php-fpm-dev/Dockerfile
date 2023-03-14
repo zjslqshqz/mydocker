@@ -28,7 +28,8 @@ opcache.interned_strings_buffer=16\n \
 ; 指定 Opcache 所使用的内存大小，单位为 MB\n \
 opcache.memory_consumption=128\n \
 ; 指定优化级别，所有位都被设置为 1，表示启用所有优化选项\n \
-opcache.optimization_level=0xffffffff\n \
+; XDebug 开启会导致 optimization_level = 0 \n \
+opcache.optimization_level=0x7FFEBFFF\n \
 ; 配置保护时间，以秒为单位，在此时间内不会检查文件的时间戳是否已更改\n \
 opcache.file_update_protection=2" > "$PHP_INI_DIR/conf.d/docker-php-ext-01-opcache.ini"
 
