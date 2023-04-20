@@ -27,5 +27,8 @@ jobs:
       with:
         platforms: linux/amd64,linux/arm64
         
-    - name: build docker
-      run: docker buildx build ./php-fpm --platform linux/amd64,linux/arm64 -t zjslqshqz/php:test . --push
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v4.0.0
+      with:
+        push: true
+        tags: zjslqshqz/php:test
