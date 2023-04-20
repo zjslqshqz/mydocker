@@ -19,6 +19,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2.5.0
       with:
-        context: ./php-fpm
+        context: .
+        file: ./php-fpm
         platforms: linux/amd64,linux/arm64
         tags: latest
