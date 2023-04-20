@@ -22,4 +22,4 @@ jobs:
         platforms: linux/amd64,linux/arm64
         
     - name: build docker
-      run: cd ./php-fpm && docker buildx build -t zjslqshqz/php:test
+      run: cd ./php-fpm && docker buildx build --file Dockerfile -t zjslqshqz/php:test
