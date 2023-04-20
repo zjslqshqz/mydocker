@@ -1,5 +1,8 @@
 name: Docker Image CI
 
+env:
+  docker-token: ${{ secrets.LOGIN_TOKEN }}
+
 on:
   push:
     branches: [ "main" ]
@@ -25,7 +28,7 @@ jobs:
       uses: docker/login-action@v2.1.0
       with:
         username: zjslqshqz
-        password: ${{ secrets.LOGIN_TOKEN }}
+        password: ${{ env.docker-token }}
         
     - name: build docker
       run: docker buildx build ./php-fpm -t zjslqshqz/php:test . --push
