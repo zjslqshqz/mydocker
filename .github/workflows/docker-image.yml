@@ -1,7 +1,5 @@
 name: Docker Image CI
 
-environment:docker-token
-
 on:
   push:
     branches: [ "main" ]
@@ -11,7 +9,7 @@ on:
 jobs:
 
   build:
-
+    environment: docker-token
     runs-on: ubuntu-latest
 
     steps:
