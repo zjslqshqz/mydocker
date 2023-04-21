@@ -13,7 +13,6 @@ on:
         - node
       imagesRepositoryName:
         description: 'choice images repository name'
-        default: ''
         required: true
         type: choice
         options:
