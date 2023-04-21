@@ -13,11 +13,11 @@ on:
         - node
       imagesRepositoryName:
         description: 'choice images repository name'
+        default: ''
         required: true
         type: choice
         options:
-        - php-fpm-dev
-        - php-fpm
+        - php
         - node
       tags:
         description: 'set images tags'
