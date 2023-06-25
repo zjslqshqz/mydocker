@@ -10,6 +10,7 @@ on:
         options:
         - php-fpm-dev
         - php-fpm
+        - php-fpm-dev@5.6
         - php-fpm@5.6
         - node
       imagesRepositoryName:
