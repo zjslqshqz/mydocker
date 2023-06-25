@@ -1,7 +1,7 @@
-FROM --platform=$TARGETPLATFORM zjslqshqz/php:7.4.33-fpm
+FROM --platform=$TARGETPLATFORM zjslqshqz/php:5.6.40-fpm
 
 # 安装 composer
-COPY --from=composer /usr/bin/composer /usr/bin/composer
+COPY --from=composer/composer:2.2.21 /usr/bin/composer /usr/bin/composer
 
 # 开放端口
 EXPOSE 9000 9003
