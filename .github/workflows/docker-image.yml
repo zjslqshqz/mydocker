@@ -8,8 +8,8 @@ on:
         required: true
         type: choice
         options:
-        - php-fpm-dev
-        - php-fpm
+        - php-fpm-dev@7.4.33
+        - php-fpm@7.4.33
         - php-fpm-dev@5.6
         - php-fpm@5.6
         - node
