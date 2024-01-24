@@ -1,5 +1,9 @@
 FROM --platform=$TARGETPLATFORM php:7.4.33-fpm
 
+# 时区
+ENV TZ Asia/Shanghai
+RUN date -R
+
 RUN apt update -y && \
     apt-get install -y memcached && \
     apt-get install -y git && \
