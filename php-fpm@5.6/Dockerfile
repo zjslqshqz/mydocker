@@ -1,5 +1,7 @@
 FROM --platform=$TARGETPLATFORM php:5.6.40-fpm
-
+# 时区
+ENV TZ Asia/Shanghai
+RUN date -R
 # 开启拓展
 RUN curl -sSLf \
         -o /usr/local/bin/install-php-extensions \
