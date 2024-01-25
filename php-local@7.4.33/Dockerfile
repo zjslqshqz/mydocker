@@ -6,9 +6,7 @@ RUN date -R
 
 RUN apt update -y && \
     apt-get install -y memcached && \
-    apt-get install -y git && \
     apt-get install -y redis && \
-    apt-get install -y htop && \
     apt-get install -y ffmpeg
 
 # 向 docker-php-entrypoint 文件中插入启动 Memcached redis 的命令
