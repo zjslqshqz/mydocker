@@ -12,6 +12,7 @@ on:
         - php-fpm@7.4.33
         - php-fpm-dev@5.6
         - php-fpm@5.6
+        - php-local@7.4.33
         - node
       imagesRepositoryName:
         description: 'choice images repository name'
