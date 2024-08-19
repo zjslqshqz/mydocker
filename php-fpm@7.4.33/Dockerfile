@@ -11,10 +11,10 @@ RUN curl -sSLf \
     bcmath bz2 \
     enchant event exif \
     gd gettext gmp \
-    imap intl \
-    oauth oci8 odbc \
+    imap intl igbinary \
+    oauth oci8 odbc ldap \
     pcntl pdo_mysql pdo_oci pdo_odbc \
-    redis \
+    redis memcache memcached \
     ssh2 shmop sockets soap sysvsem sysvmsg sysvshm \
     xmlrpc \
     mcrypt msgpack \
