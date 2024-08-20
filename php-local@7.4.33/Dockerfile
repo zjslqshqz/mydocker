@@ -7,9 +7,7 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 EXPOSE 9000 9003
 
 RUN apt update -y && \
-    apt-get install -y memcached && \
-    apt-get install -y redis && \
-    apt-get install -y ffmpeg
+    apt-get install -y curl ffmpeg memcached redis ffmpeg htop
 
 # 向 docker-php-entrypoint 文件中插入启动 Memcached redis 的命令
 RUN sed -i 's|exec "\$@"|memcached -m 64 -p 11211 -u memcache -l 127.0.0.1 \&\nexec "\$@"|' /usr/local/bin/docker-php-entrypoint && \
