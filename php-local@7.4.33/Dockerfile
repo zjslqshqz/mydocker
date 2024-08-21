@@ -14,7 +14,7 @@ RUN sed -i 's|exec "\$@"|memcached -m 64 -p 11211 -u memcache -l 127.0.0.1 \&\ne
     sed -i 's|exec "\$@"|service redis-server start \&\nexec "\$@"|' /usr/local/bin/docker-php-entrypoint
 
 # 复制开发模式配置文件并修改 php.ini 文件
-RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" && \
+RUN cp "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini" && \
     sed -i 's/upload_max_filesize = 2M/upload_max_filesize = 1024M/g' "$PHP_INI_DIR/php.ini" && \
     sed -i 's/max_file_uploads = 20/max_file_uploads = 2048/g' "$PHP_INI_DIR/php.ini" && \
     sed -i 's/max_execution_time = 30/max_execution_time = 0/g' "$PHP_INI_DIR/php.ini" && \
