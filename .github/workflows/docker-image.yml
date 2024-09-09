@@ -9,11 +9,11 @@ on:
         type: choice
         options:
         - php-fpm@8.3.11
-        - php-fpm-dev@7.4.33
         - php-fpm@7.4.33
-        - php-fpm-dev@5.6
-        - php-fpm@5.6
+        - php-fpm-dev@7.4.33
         - php-local@7.4.33
+        - php-fpm@5.6
+        - php-fpm-dev@5.6
         - node
       imagesRepositoryName:
         description: 'choice images repository name'
