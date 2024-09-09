@@ -8,6 +8,7 @@ on:
         required: true
         type: choice
         options:
+        - php-fpm@8.3.11
         - php-fpm-dev@7.4.33
         - php-fpm@7.4.33
         - php-fpm-dev@5.6
