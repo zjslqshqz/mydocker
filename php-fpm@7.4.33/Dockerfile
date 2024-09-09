@@ -14,7 +14,7 @@ RUN curl -sSLf \
     imap intl igbinary \
     oauth oci8 odbc ldap \
     pcntl pdo_mysql pdo_oci pdo_odbc \
-    redis memcache memcached \
+    redis mysqli memcache memcached \
     ssh2 shmop sockets soap sysvsem sysvmsg sysvshm \
     xmlrpc \
     mcrypt msgpack \
