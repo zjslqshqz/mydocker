@@ -1,4 +1,4 @@
-FROM --platform=$TARGETPLATFORM zjslqshqz/php:5.6.40-fpm
+FROM --platform=$TARGETPLATFORM zjslqshqz/php:5.6.40-php-fpm
 
 # 安装 composer
 COPY --from=composer/composer:2.2.21 /usr/bin/composer /usr/bin/composer
