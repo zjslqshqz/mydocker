@@ -66,7 +66,7 @@ jobs:
 
     - name: Push image to ACR
       run: |
-        docker tag ${{ secrets.DOCKER_USERNAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }} ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
+        docker tag ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }} ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
         docker push ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
     
 
