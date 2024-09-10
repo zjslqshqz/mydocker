@@ -41,14 +41,7 @@ jobs:
       uses: docker/login-action@v3.3.0
       with:
         username: ${{ secrets.DOCKER_SPACENAME }}
-        password: ${{ secrets.LOGIN_TOKEN }}
-        
-    - name: Docker ACR
-      uses: docker/login-action@v3.3.0
-      with:
-        registry: ${{ secrets.ACR_SERVER }}
-        username: ${{ secrets.ACR_USERNAME }}
-        password: ${{ secrets.ACR_PASSWORD }}      
+        password: ${{ secrets.LOGIN_TOKEN }}  
         
     - name: Docker Setup QEMU
       uses: docker/setup-qemu-action@v3.2.0
@@ -64,5 +57,4 @@ jobs:
         push: true
         tags: |
           ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
-          ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
     
