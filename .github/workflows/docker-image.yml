@@ -42,6 +42,13 @@ jobs:
       with:
         username: zjslqshqz
         password: ${{ secrets.LOGIN_TOKEN }}
+
+    - name: Login to ACR
+      uses: aliyun/acr-login@v1.0.6
+      with:
+        login-server: https://${{ secrets.ACR_SERVER }}
+        username: "${{ secrets.ACR_USERNAME }}"
+        password: "${{ secrets.ACR_PASSWORD }}"        
         
     - name: Docker Setup QEMU
       uses: docker/setup-qemu-action@v3.2.0
@@ -55,18 +62,7 @@ jobs:
         context: ./${{ inputs.buildArtifact }}
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
-
-    - name: Login to ACR
-      uses: aliyun/acr-login@v1.0.6
-      with:
-        login-server: https://${{ secrets.ACR_SERVER }}
-        username: "${{ secrets.ACR_USERNAME }}"
-        password: "${{ secrets.ACR_PASSWORD }}"
-
-    - name: Push image to ACR
-      run: |
-        docker tag ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }} ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
-        docker push ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
+        tags: |
+          ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
+          ${{ secrets.ACR_SERVER }}/${{ secrets.ACR_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
     
-
