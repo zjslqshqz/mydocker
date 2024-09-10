@@ -58,7 +58,7 @@ jobs:
         tags: ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
 
     - name: Login to ACR
-      uses: liyun/acr-login@v1.0.6
+      uses: aliyun/acr-login@v1.0.6
       with:
         login-server: https://${{ secrets.ACR_SERVER }}
         username: "${{ secrets.ACR_USERNAME }}"
