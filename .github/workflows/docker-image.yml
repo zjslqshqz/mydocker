@@ -3,25 +3,17 @@ name: Docker Image CI
 on:
   workflow_dispatch:
     inputs:
-      buildArtifact:
-        description: 'choice build artifact'
-        required: true
-        type: choice
-        options:
-        - php-fpm@8.3.11
-        - php-fpm@7.4.33
-        - php-fpm-dev@7.4.33
-        - php-local@7.4.33
-        - php-fpm@5.6
-        - php-fpm-dev@5.6
-        - node
-      imagesRepositoryName:
-        description: 'choice images repository name'
+      buildSoftwareName:
+        description: 'choice software'
         required: true
         type: choice
         options:
         - php
         - node
+      inputVersion:
+        description: 'input version'
+        default: ''
+        required: true
       tags:
         description: 'set images tags'
         default: 'latest'
@@ -52,9 +44,9 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v6.7.0
       with:
-        context: ./${{ inputs.buildArtifact }}
+        context: ./${{ inputs.buildSoftwareName }}/${{ inputs.inputVersion }}/${{ inputs.tags }}
         platforms: linux/amd64,linux/arm64
         push: true
         tags: |
-          ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.imagesRepositoryName }}:${{ inputs.tags }}
+          ${{ secrets.DOCKER_SPACENAME }}/${{ inputs.buildSoftwareName }}:${{ inputs.inputVersion }}-${{ inputs.tags }}
     
